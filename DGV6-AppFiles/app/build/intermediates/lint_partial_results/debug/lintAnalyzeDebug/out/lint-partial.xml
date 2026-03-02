@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.5.0" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.dgv6.app.SplashActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="NotificationPermission">
+        <entry
+            name="className"
+            string="com/bumptech/glide/request/target/NotificationTarget"/>
+        <location id="class"
+            file="$GRADLE_USER_HOME/caches/8.9/transforms/90736321aa41e76229b212f31a828499/transformed/jetified-glide-4.12.0/jars/classes.jar"/>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.color.teal_700"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="7"
+            column="12"
+            startOffset="248"
+            endLine="7"
+            endColumn="27"
+            endOffset="263"/>
+        <location id="R.color.colorPrimary"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="20"
+            column="12"
+            startOffset="724"
+            endLine="20"
+            endColumn="31"
+            endOffset="743"/>
+        <location id="R.color.primary_dark"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="12"
+            column="12"
+            startOffset="420"
+            endLine="12"
+            endColumn="31"
+            endOffset="439"/>
+        <location id="R.color.teal_200"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="6"
+            column="12"
+            startOffset="203"
+            endLine="6"
+            endColumn="27"
+            endOffset="218"/>
+        <location id="R.color.colorAccent"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="22"
+            column="12"
+            startOffset="841"
+            endLine="22"
+            endColumn="30"
+            endOffset="859"/>
+        <location id="R.color.black"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="8"
+            column="12"
+            startOffset="293"
+            endLine="8"
+            endColumn="24"
+            endOffset="305"/>
+        <location id="R.color.purple_700"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="5"
+            column="12"
+            startOffset="156"
+            endLine="5"
+            endColumn="29"
+            endOffset="173"/>
+        <location id="R.style.AppTheme"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/styles.xml"
+            line="3"
+            column="12"
+            startOffset="60"
+            endLine="3"
+            endColumn="27"
+            endOffset="75"/>
+        <location id="R.color.purple_500"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="4"
+            column="12"
+            startOffset="109"
+            endLine="4"
+            endColumn="29"
+            endOffset="126"/>
+        <location id="R.color.accent"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="13"
+            column="12"
+            startOffset="467"
+            endLine="13"
+            endColumn="25"
+            endOffset="480"/>
+        <location id="R.color.colorPrimaryDark"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="21"
+            column="12"
+            startOffset="778"
+            endLine="21"
+            endColumn="35"
+            endOffset="801"/>
+        <location id="R.color.purple_200"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="3"
+            column="12"
+            startOffset="62"
+            endLine="3"
+            endColumn="29"
+            endOffset="79"/>
+        <entry
+            name="model"
+            string="color[white(U),bg_light(U),primary(U),text_dark(U),text_muted(U),success(U),danger(U),purple_200(D),purple_500(D),purple_700(D),teal_200(D),teal_700(D),black(D),primary_dark(D),accent(D),colorPrimary(D),colorPrimaryDark(D),colorAccent(D)],drawable[edit_text_bg(U),splash_drawable(U)],id[headerView(U),ivLogo(U),tvSiteTitle(U),tvWelcome(U),tvBalance(U),tvLoyalty(U),btnFund(U),btnReferral(U),cardData(U),cardAirtime(U),cardCable(U),cardPower(U),cardSms(U),cardEducation(U),navHome(U),navHistory(U),navProfile(U),navSupport(U),btnBack(U),etAmount(U),btnPayOnline(U),virtualBankContainer(D),tvBankInfo(U),btnManual(U),tvDomain(D),etUser(U),etPass(U),btnLogin(U),progressBar(U),tvRegister(U),tvName(U),tvUsername(U),tvLevel(U),tvPoints(U),tvEmail(U),tvPhone(U),tvJoined(U),btnLogout(U),etFirst(U),etLast(U),etEmail(U),etPhone(U),etAddress(D),btnRegister(U),tvTitle(U),spnNetwork(U),tvPlanLabel(U),spnPlan(U),tvAmountLabel(D),btnPurchase(U),tvLimits(U),etDomain(U),btnConnect(U),splashLogo(U)],layout[activity_dashboard(U),activity_fund(U),activity_login(U),activity_profile(U),activity_register(U),activity_service(U),activity_setup(U),activity_splash(U)],mipmap[app_icon(U),splash_logo(U)],style[Theme_MaterialComponents_Light_NoActionBar(R),SplashTheme(U),AppTheme(D),Theme_AppCompat_Light_NoActionBar(R)];f^2,10^d,11^e,12^0,13^0^53,4a^1^2^15^0^3^18^4,4b^1^2^0^26^4^3,4c^1^3^12^2^0,4d^1^2^0^26^3^4^5^6,4e^1^3^12^2^0,4f^1^2^0^26^4,50^52,51^2^53^49^0,55^57^13,56^57^f^10^11;;;"/>
+    </map>
+
+</incidents>

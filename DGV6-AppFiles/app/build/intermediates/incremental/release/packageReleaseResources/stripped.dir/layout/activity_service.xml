@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_light">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@color/primary">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:layout_centerVertical="true"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purchase Service"
+            android:layout_toRightOf="@id/btnBack"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Network"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_muted"
+                        android:layout_marginBottom="8dp"/>
+
+                    <Spinner
+                        android:id="@+id/spnNetwork"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:layout_marginBottom="20dp"/>
+
+                    <TextView
+                        android:id="@+id/tvPlanLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Plan"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_muted"
+                        android:layout_marginBottom="8dp"
+                        android:visibility="gone"/>
+
+                    <Spinner
+                        android:id="@+id/spnPlan"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:layout_marginBottom="20dp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recipient Number"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_muted"
+                        android:layout_marginBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="08012345678"
+                        android:inputType="phone"
+                        android:padding="12dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvAmountLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amount (₦)"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_muted"
+                        android:layout_marginBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/etAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="e.g. 500"
+                        android:inputType="number"
+                        android:padding="12dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:layout_marginBottom="30dp"
+                        android:textSize="16sp"/>
+
+                    <Button
+                        android:id="@+id/btnPurchase"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Proceed"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@color/white"
+                        app:cornerRadius="15dp"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvLimits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Daily Limit: Checking..."
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

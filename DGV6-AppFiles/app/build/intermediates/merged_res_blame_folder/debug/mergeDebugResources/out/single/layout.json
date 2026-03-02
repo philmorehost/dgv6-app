@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_service.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_service.xml"
+    },
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_profile.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_fund.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_fund.xml"
+    },
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_splash.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_dashboard.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_login.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_login.xml"
+    },
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_setup.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_setup.xml"
+    },
+    {
+        "merged": "/home/user/.gradle/daemon/8.9/com.dgv6.app-mergeDebugResources-29:/layout/activity_register.xml",
+        "source": "/home/user/.gradle/daemon/8.9/com.dgv6.app-main-32:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.dgv6.app-mergeDebugResources-29:/layout/activity_login.xml",
+        "source": "com.dgv6.app-main-32:/layout/activity_login.xml"
+    }
+]

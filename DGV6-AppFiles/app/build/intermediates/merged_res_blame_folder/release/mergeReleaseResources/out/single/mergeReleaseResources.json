@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-hdpi_app_icon.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-hdpi/app_icon.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_service.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_service.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_login.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-xxhdpi_splash_logo.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-xxhdpi/splash_logo.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-mdpi_splash_logo.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-mdpi/splash_logo.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/drawable_splash_drawable.xml.flat",
+        "source": "com.dgv6.app-main-31:/drawable/splash_drawable.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-xxhdpi_app_icon.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-xxhdpi/app_icon.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/drawable_edit_text_bg.xml.flat",
+        "source": "com.dgv6.app-main-31:/drawable/edit_text_bg.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-xxxhdpi_splash_logo.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-xxxhdpi/splash_logo.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-xhdpi_app_icon.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-xhdpi/app_icon.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_register.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-mdpi_app_icon.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-mdpi/app_icon.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-xxxhdpi_app_icon.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-xxxhdpi/app_icon.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-hdpi_splash_logo.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-hdpi/splash_logo.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/mipmap-xhdpi_splash_logo.png.flat",
+        "source": "com.dgv6.app-main-31:/mipmap-xhdpi/splash_logo.png"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_fund.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_fund.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_dashboard.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_setup.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_setup.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_profile.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "com.dgv6.app-release-30:/layout_activity_splash.xml.flat",
+        "source": "com.dgv6.app-main-31:/layout/activity_splash.xml"
+    }
+]

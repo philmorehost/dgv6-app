@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dgv6.app"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="33" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- suppress DeprecatedClassUsageInspection -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <permission
+        android:name="com.dgv6.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.dgv6.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:extractNativeLibs="true"
+        android:icon="@mipmap/app_icon"
+        android:label="DGV6 VTU"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+        <activity
+            android:name="com.dgv6.app.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.dgv6.app.SetupActivity" />
+        <activity android:name="com.dgv6.app.LoginActivity" />
+        <activity android:name="com.dgv6.app.RegisterActivity" />
+        <activity android:name="com.dgv6.app.DashboardActivity" />
+        <activity android:name="com.dgv6.app.ServiceActivity" />
+        <activity android:name="com.dgv6.app.ProfileActivity" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.dgv6.app.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+        </provider>
+    </application>
+
+</manifest>

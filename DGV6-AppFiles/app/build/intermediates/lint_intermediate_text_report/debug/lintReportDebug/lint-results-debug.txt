@@ -1,0 +1,814 @@
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ServiceActivity.java:81: Warning: Implicitly using the default locale is a common source of bugs: Use toUpperCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+        tvTitle.setText(serviceType.toUpperCase());
+                                    ~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ServiceActivity.java:103: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                loadPlans(parent.getItemAtPosition(position).toString().toLowerCase());
+                                                                        ~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ServiceActivity.java:170: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                        if (spnNetwork.getItemAtPosition(i).toString().toLowerCase().contains(network.toLowerCase())) {
+                                                                       ~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ServiceActivity.java:170: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                        if (spnNetwork.getItemAtPosition(i).toString().toLowerCase().contains(network.toLowerCase())) {
+                                                                                                      ~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ServiceActivity.java:185: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+        String network = spnNetwork.getSelectedItem().toString().toLowerCase();
+                                                                 ~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.ROOT) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+/home/user/datagifting-app/app/build.gradle:21: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk 33
+        ~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/SplashActivity.java:8: Warning: The application should not provide its own launch screen [CustomSplashScreen]
+public class SplashActivity extends AppCompatActivity {
+             ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "CustomSplashScreen":
+   Starting in Android 12 (API 31+), the application's Launch Screen is
+   provided by the system and the application should not create its own,
+   otherwise the user will see two splashscreens. Please check the
+   SplashScreen class to check how the Splash Screen can be controlled and
+   customized.
+
+   https://developer.android.com/guide/topics/ui/splash-screen
+
+/home/user/datagifting-app/app/build.gradle:7: Warning: A newer version of compileSdkVersion than 33 is available: 34 [GradleDependency]
+    compileSdk 33
+    ~~~~~~~~~~~~~
+/home/user/datagifting-app/app/build.gradle:45: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/build.gradle:46: Warning: A newer version of com.google.android.material:material than 1.5.0 is available: 1.13.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.5.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/build.gradle:47: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.3 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:63: Warning: Invalid layout param in a LinearLayout: layout_centerInParent [ObsoleteLayoutParam]
+        android:layout_centerInParent="true"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteLayoutParam":
+   The given layout_param is not defined for the given layout, meaning it has
+   no effect. This usually happens when you change the parent layout or move
+   view code around without updating the layout params. This will cause
+   useless attribute processing at runtime, and is misleading for others
+   reading the layout so the parameter should be removed.
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:78: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout
+             ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:113: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="15dp" android:gravity="center" android:orientation="horizontal">
+         ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:149: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                 ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:164: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                 ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:179: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                 ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:194: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                 ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:209: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                 ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:224: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                 ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:247: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout
+             ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:258: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout
+             ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:269: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout
+             ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:280: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout
+             ~~~~~~~~~~~~
+
+   Explanation for issues of type "UseCompoundDrawables":
+   A LinearLayout which contains an ImageView and a TextView can be more
+   efficiently handled as a compound drawable (a single TextView, using the
+   drawableTop, drawableLeft, drawableRight and/or drawableBottom attributes
+   to draw one or more images adjacent to the text).
+
+   If the two widgets are offset from each other with margins, this can be
+   replaced with a drawablePadding attribute.
+
+   There's a lint quickfix to perform this conversion in the Eclipse plugin.
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:240: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+        <LinearLayout
+         ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:92: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+                    <LinearLayout
+                     ~~~~~~~~~~~~
+
+   Explanation for issues of type "DisableBaselineAlignment":
+   When a LinearLayout is used to distribute the space proportionally between
+   nested layouts, the baseline alignment property should be turned off to
+   make the layout computation faster.
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:7: Warning: Possible overdraw: Root element paints background @color/bg_light with a theme that also paints a background (inferred theme is @style/Theme.MaterialComponents.Light.NoActionBar) [Overdraw]
+    android:background="@color/bg_light">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:7: Warning: Possible overdraw: Root element paints background @color/bg_light with a theme that also paints a background (inferred theme is @style/Theme.MaterialComponents.Light.NoActionBar) [Overdraw]
+    android:background="@color/bg_light">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:8: Warning: Possible overdraw: Root element paints background @color/bg_light with a theme that also paints a background (inferred theme is @style/Theme.MaterialComponents.Light.NoActionBar) [Overdraw]
+    android:background="@color/bg_light">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:7: Warning: Possible overdraw: Root element paints background @color/bg_light with a theme that also paints a background (inferred theme is @style/Theme.MaterialComponents.Light.NoActionBar) [Overdraw]
+    android:background="@color/bg_light">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:5: Warning: Possible overdraw: Root element paints background @color/bg_light with a theme that also paints a background (inferred theme is @style/Theme.MaterialComponents.Light.NoActionBar) [Overdraw]
+    android:background="@color/bg_light">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:7: Warning: Possible overdraw: Root element paints background @color/bg_light with a theme that also paints a background (inferred theme is @style/Theme.MaterialComponents.Light.NoActionBar) [Overdraw]
+    android:background="@color/bg_light">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_setup.xml:8: Warning: Possible overdraw: Root element paints background #f6f9fc with a theme that also paints a background (inferred theme is @style/Theme.MaterialComponents.Light.NoActionBar) [Overdraw]
+    android:background="#f6f9fc">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:3: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:4: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+    <color name="purple_500">#FF6200EE</color>
+           ~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:5: Warning: The resource R.color.purple_700 appears to be unused [UnusedResources]
+    <color name="purple_700">#FF3700B3</color>
+           ~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:6: Warning: The resource R.color.teal_200 appears to be unused [UnusedResources]
+    <color name="teal_200">#FF03DAC5</color>
+           ~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:7: Warning: The resource R.color.teal_700 appears to be unused [UnusedResources]
+    <color name="teal_700">#FF018786</color>
+           ~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:8: Warning: The resource R.color.black appears to be unused [UnusedResources]
+    <color name="black">#FF000000</color>
+           ~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:12: Warning: The resource R.color.primary_dark appears to be unused [UnusedResources]
+    <color name="primary_dark">#0a58ca</color>
+           ~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:13: Warning: The resource R.color.accent appears to be unused [UnusedResources]
+    <color name="accent">#f8f9fa</color>
+           ~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:20: Warning: The resource R.color.colorPrimary appears to be unused [UnusedResources]
+    <color name="colorPrimary">@color/primary</color>
+           ~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:21: Warning: The resource R.color.colorPrimaryDark appears to be unused [UnusedResources]
+    <color name="colorPrimaryDark">@color/primary_dark</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/colors.xml:22: Warning: The resource R.color.colorAccent appears to be unused [UnusedResources]
+    <color name="colorAccent">@color/accent</color>
+           ~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/values/styles.xml:3: Warning: The resource R.style.AppTheme appears to be unused [UnusedResources]
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+           ~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/home/user/datagifting-app/app/src/main/res/mipmap-hdpi/app_icon.png: Warning: Launcher icon used as round icon did not have a circular shape [IconLauncherShape]
+/home/user/datagifting-app/app/src/main/res/mipmap-mdpi/app_icon.png: Warning: Launcher icon used as round icon did not have a circular shape [IconLauncherShape]
+/home/user/datagifting-app/app/src/main/res/mipmap-xhdpi/app_icon.png: Warning: Launcher icon used as round icon did not have a circular shape [IconLauncherShape]
+/home/user/datagifting-app/app/src/main/res/mipmap-xxhdpi/app_icon.png: Warning: Launcher icon used as round icon did not have a circular shape [IconLauncherShape]
+/home/user/datagifting-app/app/src/main/res/mipmap-xxxhdpi/app_icon.png: Warning: Launcher icon used as round icon did not have a circular shape [IconLauncherShape]
+
+   Explanation for issues of type "IconLauncherShape":
+   According to the Android Design Guide
+   (https://d.android.com/r/studio-ui/designer/material/iconography) your
+   launcher icons should "use a distinct silhouette", a "three-dimensional,
+   front view, with a slight perspective as if viewed from above, so that
+   users perceive some depth."
+
+   The unique silhouette implies that your launcher icon should not be a
+   filled square.
+
+/home/user/datagifting-app/app/src/main/res/mipmap-xxxhdpi/app_icon.png: Warning: The image app_icon.png varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi/app_icon.png: 341x341 dp (512x512 px), mipmap-mdpi/app_icon.png: 512x512 dp (512x512 px), mipmap-xhdpi/app_icon.png: 256x256 dp (512x512 px), mipmap-xxhdpi/app_icon.png: 171x171 dp (512x512 px), mipmap-xxxhdpi/app_icon.png: 128x128 dp (512x512 px) [IconDipSize]
+/home/user/datagifting-app/app/src/main/res/mipmap-xxxhdpi/splash_logo.png: Warning: The image splash_logo.png varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi/splash_logo.png: 683x683 dp (1024x1024 px), mipmap-mdpi/splash_logo.png: 1024x1024 dp (1024x1024 px), mipmap-xhdpi/splash_logo.png: 512x512 dp (1024x1024 px), mipmap-xxhdpi/splash_logo.png: 341x341 dp (1024x1024 px), mipmap-xxxhdpi/splash_logo.png: 256x256 dp (1024x1024 px) [IconDipSize]
+
+   Explanation for issues of type "IconDipSize":
+   Checks the all icons which are provided in multiple densities, all compute
+   to roughly the same density-independent pixel (dip) size. This catches
+   errors where images are either placed in the wrong folder, or icons are
+   changed to new sizes but some folders are forgotten.
+
+/home/user/datagifting-app/app/src/main/res/mipmap-xxxhdpi/app_icon.png: Warning: The app_icon.png icon has identical contents in the following configuration folders: mipmap-hdpi, mipmap-mdpi, mipmap-xhdpi, mipmap-xxhdpi, mipmap-xxxhdpi [IconDuplicatesConfig]
+/home/user/datagifting-app/app/src/main/res/mipmap-xxxhdpi/splash_logo.png: Warning: The splash_logo.png icon has identical contents in the following configuration folders: mipmap-hdpi, mipmap-mdpi, mipmap-xhdpi, mipmap-xxhdpi, mipmap-xxxhdpi [IconDuplicatesConfig]
+
+   Explanation for issues of type "IconDuplicatesConfig":
+   If an icon is provided under different configuration parameters such as
+   drawable-hdpi or -v11, they should typically be different. This detector
+   catches cases where the same icon is provided in different configuration
+   folder which is usually not intentional.
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:28: Warning: This text field does not specify an inputType [TextFields]
+    <EditText
+     ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:22: Warning: This text field does not specify an inputType [TextFields]
+        <EditText android:id="@+id/etFirst" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="First Name" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:23: Warning: This text field does not specify an inputType [TextFields]
+        <EditText android:id="@+id/etLast" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Last Name" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:24: Warning: This text field does not specify an inputType [TextFields]
+        <EditText android:id="@+id/etUser" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Username" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:27: Warning: This text field does not specify an inputType [TextFields]
+        <EditText android:id="@+id/etAddress" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Home Address" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:255: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textSize="10sp" android:textColor="@color/primary"/>
+                                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:266: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="History" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                                          ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:277: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profile" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                                          ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:288: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Support" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                                          ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:103: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Account Level" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                                                            ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:113: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Loyalty Points" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                                                             ~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SmallSp":
+   Avoid using sizes smaller than 11sp.
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:69: Warning: Missing autofillHints attribute [Autofill]
+                    <EditText
+                     ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:28: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:37: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:22: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etFirst" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="First Name" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:23: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etLast" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Last Name" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:24: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etUser" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Username" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:25: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" android:inputType="textEmailAddress" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:26: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etPhone" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Phone Number" android:inputType="phone" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:27: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etAddress" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Home Address" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:28: Warning: Missing autofillHints attribute [Autofill]
+        <EditText android:id="@+id/etPass" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Password" android:inputType="textPassword" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="30dp"/>
+         ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:101: Warning: Missing autofillHints attribute [Autofill]
+                    <EditText
+                     ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:121: Warning: Missing autofillHints attribute [Autofill]
+                    <EditText
+                     ~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_setup.xml:33: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:17: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:85: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@android:drawable/btn_star_big_on" app:tint="#FFD700"/>
+                 ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:114: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_share" app:tint="@color/primary"/>
+             ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:150: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_share" app:tint="@color/primary"/>
+                     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:165: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_call" app:tint="@color/primary"/>
+                     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:180: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_slideshow" app:tint="@color/primary"/>
+                     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:195: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_compass" app:tint="@color/primary"/>
+                     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:210: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_send" app:tint="@color/primary"/>
+                     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:225: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@android:drawable/ic_menu_edit" app:tint="@color/primary"/>
+                     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:254: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_today" app:tint="@color/primary"/>
+                 ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:265: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_recent_history" app:tint="@color/text_muted"/>
+                 ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:276: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="@color/text_muted"/>
+                 ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:287: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_help" app:tint="@color/text_muted"/>
+                 ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:17: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:17: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:62: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:17: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_setup.xml:10: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_splash.xml:7: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/DashboardActivity.java:60: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+        tvWelcome.setText("Welcome, " + session.getUsername());
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/DashboardActivity.java:60: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        tvWelcome.setText("Welcome, " + session.getUsername());
+                          ~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/DashboardActivity.java:144: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                        tvBalance.setText("₦" + data.get("balance").getAsString());
+                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/DashboardActivity.java:145: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                        if(data.has("loyalty_points")) tvLoyalty.setText(data.get("loyalty_points").getAsString() + " Points");
+                                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/DashboardActivity.java:145: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                        if(data.has("loyalty_points")) tvLoyalty.setText(data.get("loyalty_points").getAsString() + " Points");
+                                                                                                                    ~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/FundActivity.java:52: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvBankInfo.setText("Wema Bank: 0123456789 (DGV6-" + session.getUsername() + ")");
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/FundActivity.java:52: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    tvBankInfo.setText("Wema Bank: 0123456789 (DGV6-" + session.getUsername() + ")");
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ProfileActivity.java:60: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvName.setText(data.get("firstname").getAsString() + " " + data.get("lastname").getAsString());
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ProfileActivity.java:62: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvUsername.setText("@" + data.get("username").getAsString());
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ProfileActivity.java:66: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    if(data.has("loyalty_points")) tvPoints.setText(data.get("loyalty_points").getAsString() + " pts");
+                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ProfileActivity.java:66: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    if(data.has("loyalty_points")) tvPoints.setText(data.get("loyalty_points").getAsString() + " pts");
+                                                                                                               ~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ServiceActivity.java:150: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvLimits.setText("Daily Limit Used: " + data.get("used").getAsString() + " / " + data.get("limit").getAsString());
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/java/com/dgv6/app/ServiceActivity.java:150: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    tvLimits.setText("Daily Limit Used: " + data.get("used").getAsString() + " / " + data.get("limit").getAsString());
+                                     ~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:28: Warning: Hardcoded string "VTU Platform", should use @string resource [HardcodedText]
+            android:text="VTU Platform"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:40: Warning: Hardcoded string "Welcome, User", should use @string resource [HardcodedText]
+            android:text="Welcome, User"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:64: Warning: Hardcoded string "Available Balance", should use @string resource [HardcodedText]
+                android:text="Available Balance"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:72: Warning: Hardcoded string "₦0.00", should use @string resource [HardcodedText]
+                android:text="₦0.00"
+                ~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:86: Warning: Hardcoded string "0 Points", should use @string resource [HardcodedText]
+                <TextView android:id="@+id/tvLoyalty" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Points" android:textSize="12sp" android:layout_marginLeft="4dp" android:textColor="@color/text_muted"/>
+                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:95: Warning: Hardcoded string "Fund Wallet", should use @string resource [HardcodedText]
+                android:text="Fund Wallet"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:115: Warning: Hardcoded string "Earn Points via Referral", should use @string resource [HardcodedText]
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Earn Points via Referral" android:textStyle="bold" android:layout_marginLeft="12dp" android:textColor="@color/text_dark"/>
+                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:122: Warning: Hardcoded string "Our Services", should use @string resource [HardcodedText]
+        android:text="Our Services"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:151: Warning: Hardcoded string "Data", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Data" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_dark"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:166: Warning: Hardcoded string "Airtime", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Airtime" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_dark"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:181: Warning: Hardcoded string "Cable TV", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cable TV" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_dark"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:196: Warning: Hardcoded string "Electricity", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Electricity" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_dark"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:211: Warning: Hardcoded string "Bulk SMS", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bulk SMS" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_dark"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:226: Warning: Hardcoded string "Education", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Education" android:textSize="12sp" android:layout_marginTop="8dp" android:textColor="@color/text_dark"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:255: Warning: Hardcoded string "Home", should use @string resource [HardcodedText]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textSize="10sp" android:textColor="@color/primary"/>
+                                                                                                   ~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:266: Warning: Hardcoded string "History", should use @string resource [HardcodedText]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="History" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:277: Warning: Hardcoded string "Profile", should use @string resource [HardcodedText]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profile" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:288: Warning: Hardcoded string "Support", should use @string resource [HardcodedText]
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Support" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:28: Warning: Hardcoded string "Fund Wallet", should use @string resource [HardcodedText]
+            android:text="Fund Wallet"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:64: Warning: Hardcoded string "Enter Funding Amount", should use @string resource [HardcodedText]
+                        android:text="Enter Funding Amount"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:73: Warning: Hardcoded string "₦ 0.00", should use @string resource [HardcodedText]
+                        android:hint="₦ 0.00"
+                        ~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:86: Warning: Hardcoded string "Pay Online (Instant)", should use @string resource [HardcodedText]
+                        android:text="Pay Online (Instant)"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:98: Warning: Hardcoded string "Other Funding Options", should use @string resource [HardcodedText]
+                android:text="Other Funding Options"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:117: Warning: Hardcoded string "Automated Virtual Bank", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Automated Virtual Bank" android:textStyle="bold" android:textColor="@color/primary" android:layout_marginBottom="10dp"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:118: Warning: Hardcoded string "Fetching details...", should use @string resource [HardcodedText]
+                    <TextView android:id="@+id/tvBankInfo" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Fetching details..."/>
+                                                                                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:134: Warning: Hardcoded string "Manual Funding", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Manual Funding" android:textStyle="bold" android:layout_marginBottom="10dp"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:135: Warning: Hardcoded string "Send payment to our platform banks and submit a ticket.", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Send payment to our platform banks and submit a ticket." android:textSize="12sp" android:textColor="@color/text_muted"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:141: Warning: Hardcoded string "Get Manual Bank Details", should use @string resource [HardcodedText]
+                        android:text="Get Manual Bank Details"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:13: Warning: Hardcoded string "Login", should use @string resource [HardcodedText]
+        android:text="Login"
+        ~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:22: Warning: Hardcoded string "Login", should use @string resource [HardcodedText]
+        android:text="Login"
+        ~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:32: Warning: Hardcoded string "Username", should use @string resource [HardcodedText]
+        android:hint="Username"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:41: Warning: Hardcoded string "Password", should use @string resource [HardcodedText]
+        android:hint="Password"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:51: Warning: Hardcoded string "Login", should use @string resource [HardcodedText]
+        android:text="Login"
+        ~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_login.xml:70: Warning: Hardcoded string "Don't have an account? Register", should use @string resource [HardcodedText]
+        android:text="Don't have an account? Register"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:28: Warning: Hardcoded string "My Profile", should use @string resource [HardcodedText]
+            android:text="My Profile"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:73: Warning: Hardcoded string "Full Name", should use @string resource [HardcodedText]
+                        android:text="Full Name"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:103: Warning: Hardcoded string "Account Level", should use @string resource [HardcodedText]
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Account Level" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:104: Warning: Hardcoded string "Smart", should use @string resource [HardcodedText]
+                            <TextView android:id="@+id/tvLevel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Smart" android:textStyle="bold" android:textColor="@color/primary"/>
+                                                                                                                                         ~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:113: Warning: Hardcoded string "Loyalty Points", should use @string resource [HardcodedText]
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Loyalty Points" android:textSize="10sp" android:textColor="@color/text_muted"/>
+                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:114: Warning: Hardcoded string "0 pts", should use @string resource [HardcodedText]
+                            <TextView android:id="@+id/tvPoints" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 pts" android:textStyle="bold" android:textColor="@color/success"/>
+                                                                                                                                          ~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:134: Warning: Hardcoded string "Contact Information", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Contact Information" android:textStyle="bold" android:layout_marginBottom="15dp"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:136: Warning: Hardcoded string "Email Address", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Email Address" android:textSize="12sp" android:textColor="@color/text_muted"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:137: Warning: Hardcoded string "email@domain.com", should use @string resource [HardcodedText]
+                    <TextView android:id="@+id/tvEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="email@domain.com" android:layout_marginBottom="15dp"/>
+                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:139: Warning: Hardcoded string "Phone Number", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Phone Number" android:textSize="12sp" android:textColor="@color/text_muted"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:140: Warning: Hardcoded string "08000000000", should use @string resource [HardcodedText]
+                    <TextView android:id="@+id/tvPhone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="08000000000" android:layout_marginBottom="15dp"/>
+                                                                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:142: Warning: Hardcoded string "Joined Since", should use @string resource [HardcodedText]
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Joined Since" android:textSize="12sp" android:textColor="@color/text_muted"/>
+                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:143: Warning: Hardcoded string "Jan 1, 2024", should use @string resource [HardcodedText]
+                    <TextView android:id="@+id/tvJoined" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jan 1, 2024"/>
+                                                                                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:153: Warning: Hardcoded string "Logout Account", should use @string resource [HardcodedText]
+                android:text="Logout Account"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:16: Warning: Hardcoded string "Create Account", should use @string resource [HardcodedText]
+            android:text="Create Account"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:22: Warning: Hardcoded string "First Name", should use @string resource [HardcodedText]
+        <EditText android:id="@+id/etFirst" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="First Name" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+                                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:23: Warning: Hardcoded string "Last Name", should use @string resource [HardcodedText]
+        <EditText android:id="@+id/etLast" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Last Name" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+                                                                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:24: Warning: Hardcoded string "Username", should use @string resource [HardcodedText]
+        <EditText android:id="@+id/etUser" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Username" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+                                                                                                                    ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:25: Warning: Hardcoded string "Email", should use @string resource [HardcodedText]
+        <EditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" android:inputType="textEmailAddress" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+                                                                                                                     ~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:26: Warning: Hardcoded string "Phone Number", should use @string resource [HardcodedText]
+        <EditText android:id="@+id/etPhone" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Phone Number" android:inputType="phone" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+                                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:27: Warning: Hardcoded string "Home Address", should use @string resource [HardcodedText]
+        <EditText android:id="@+id/etAddress" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Home Address" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="12dp"/>
+                                                                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:28: Warning: Hardcoded string "Password", should use @string resource [HardcodedText]
+        <EditText android:id="@+id/etPass" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Password" android:inputType="textPassword" android:padding="12dp" android:background="@drawable/edit_text_bg" android:layout_marginBottom="30dp"/>
+                                                                                                                    ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_register.xml:34: Warning: Hardcoded string "Register", should use @string resource [HardcodedText]
+            android:text="Register"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:29: Warning: Hardcoded string "Purchase Service", should use @string resource [HardcodedText]
+            android:text="Purchase Service"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:63: Warning: Hardcoded string "Select Network", should use @string resource [HardcodedText]
+                        android:text="Select Network"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:79: Warning: Hardcoded string "Select Plan", should use @string resource [HardcodedText]
+                        android:text="Select Plan"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:96: Warning: Hardcoded string "Recipient Number", should use @string resource [HardcodedText]
+                        android:text="Recipient Number"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:105: Warning: Hardcoded string "08012345678", should use @string resource [HardcodedText]
+                        android:hint="08012345678"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:116: Warning: Hardcoded string "Amount (₦)", should use @string resource [HardcodedText]
+                        android:text="Amount (₦)"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:125: Warning: Hardcoded string "e.g. 500", should use @string resource [HardcodedText]
+                        android:hint="e.g. 500"
+                        ~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:136: Warning: Hardcoded string "Proceed", should use @string resource [HardcodedText]
+                        android:text="Proceed"
+                        ~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:151: Warning: Hardcoded string "Daily Limit: Checking...", should use @string resource [HardcodedText]
+                android:text="Daily Limit: Checking..."
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_setup.xml:19: Warning: Hardcoded string "Platform Setup", should use @string resource [HardcodedText]
+        android:text="Platform Setup"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_setup.xml:28: Warning: Hardcoded string "Enter your platform domain to get started", should use @string resource [HardcodedText]
+        android:text="Enter your platform domain to get started"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_setup.xml:37: Warning: Hardcoded string "e.g. vtu-platform.com", should use @string resource [HardcodedText]
+        android:hint="e.g. vtu-platform.com"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_setup.xml:47: Warning: Hardcoded string "Connect & Continue", should use @string resource [HardcodedText]
+        android:text="Connect &amp; Continue"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_splash.xml:21: Warning: Hardcoded string "DGV6 VTU", should use @string resource [HardcodedText]
+        android:text="DGV6 VTU"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:29: Warning: Consider replacing android:layout_toRightOf with android:layout_toEndOf="@id/ivLogo" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_toRightOf="@id/ivLogo"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:30: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="12dp" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_marginLeft="12dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:41: Warning: Consider replacing android:layout_alignParentRight with android:layout_alignParentEnd="true" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_alignParentRight="true"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:86: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="4dp" to better support right-to-left layouts [RtlHardcoded]
+                <TextView android:id="@+id/tvLoyalty" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 Points" android:textSize="12sp" android:layout_marginLeft="4dp" android:textColor="@color/text_muted"/>
+                                                                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:94: Warning: Consider replacing android:layout_alignParentRight with android:layout_alignParentEnd="true" to better support right-to-left layouts [RtlHardcoded]
+                android:layout_alignParentRight="true"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:115: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="12dp" to better support right-to-left layouts [RtlHardcoded]
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Earn Points via Referral" android:textStyle="bold" android:layout_marginLeft="12dp" android:textColor="@color/text_dark"/>
+                                                                                                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_dashboard.xml:123: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="20dp" to better support right-to-left layouts [RtlHardcoded]
+        android:layout_marginLeft="20dp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:29: Warning: Consider replacing android:layout_toRightOf with android:layout_toEndOf="@id/btnBack" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_toRightOf="@id/btnBack"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_fund.xml:30: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="15dp" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_marginLeft="15dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:29: Warning: Consider replacing android:layout_toRightOf with android:layout_toEndOf="@id/btnBack" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_toRightOf="@id/btnBack"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_profile.xml:30: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="15dp" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_marginLeft="15dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:30: Warning: Consider replacing android:layout_toRightOf with android:layout_toEndOf="@id/btnBack" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_toRightOf="@id/btnBack"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/datagifting-app/app/src/main/res/layout/activity_service.xml:31: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="15dp" to better support right-to-left layouts [RtlHardcoded]
+            android:layout_marginLeft="15dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RtlHardcoded":
+   Using Gravity#LEFT and Gravity#RIGHT can lead to problems when a layout is
+   rendered in locales where text flows from right to left. Use Gravity#START
+   and Gravity#END instead. Similarly, in XML gravity and layout_gravity
+   attributes, use start rather than left.
+
+   For XML attributes such as paddingLeft and layout_marginLeft, use
+   paddingStart and layout_marginStart. NOTE: If your minSdkVersion is less
+   than 17, you should add both the older left/right attributes as well as the
+   new start/end attributes. On older platforms, where RTL is not supported
+   and the start/end attributes are unknown and therefore ignored, you need
+   the older left/right attributes. There is a separate lint check which
+   catches that type of error.
+
+   (Note: For Gravity#LEFT and Gravity#START, you can use these constants even
+   when targeting older platforms, because the start bitmask is a superset of
+   the left bitmask. Therefore, you can use gravity="start" rather than
+   gravity="left|start".)
+
+0 errors, 194 warnings
